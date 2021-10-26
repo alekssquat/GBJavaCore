@@ -16,7 +16,7 @@ public class Team {
         for (int i = 0; i < myTeam.length; i++) {
             if(myTeam[i].distance>=goal){
                 myTeam[i].isFinished=true;
-            }
+            }else myTeam[i].isFinished=false;
         }
     }
     protected void showTeamInfo(){
@@ -28,24 +28,15 @@ public class Team {
     protected void showResult(){
         for (int i = 0; i < myTeam.length; i++) {
             String result;
-            if(myTeam[i].isFinished==true)result=" Преодолел все дистанции";
-            else result=" Не смог, максимальная дистанция "+ myTeam[i].distance +"km";
+            if(myTeam[i].isFinished==true){
+                result=" Преодолел все дистанции";
+            } else {
+                result=" Не смог, максимальная дистанция "+ myTeam[i].distance +"km";
+            }
             System.out.println(myTeam[i].playerName+result);
         }
     }
 }
 
-class Player{
+//class Player{ }
 
-    static int currentNumber=0;
-
-    String playerName;
-    boolean isFinished=false;
-    int distance;
-
-    public Player() {
-        currentNumber++;
-        this.playerName = "Player #"+ currentNumber;
-        this.distance= 0+(int) (Math.random()*10);
-    }
-}
